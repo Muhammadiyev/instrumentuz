@@ -39,3 +39,12 @@ class InstrumentDiscountViewSet(viewsets.ModelViewSet):
     serializer_class = InstrumentDescriptionSerializer
     filter_backends = (filters.DjangoFilterBackend, SearchFilter, OrderingFilter)
     filter_fields = ['instrument__firm','instrument__categories']
+
+
+class SearchViewSet(generics.ListAPIView):
+    __basic_fields = ('name','price')
+    queryset = Instrument.objects.filter()
+    serializer_class = InstrumentAllSerializer
+    filter_backends = (filters.DjangoFilterBackend, SearchFilter, OrderingFilter)
+    filter_fields = __basic_fields
+    search_fields = __basic_fields

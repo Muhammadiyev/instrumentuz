@@ -4,7 +4,8 @@ from rest_framework import routers
 from .views import (
     InstrumentViewSet,
     InstrumentAllView,
-    InstrumentDiscountViewSet
+    InstrumentDiscountViewSet,
+    SearchViewSet,
 )
 
 router = routers.DefaultRouter()
@@ -15,7 +16,7 @@ router.register(r'^description',InstrumentDiscountViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-   
+    path('search/', SearchViewSet.as_view()),
     path('instrument/<int:pk>/', InstrumentAllView.as_view()),
 ]
 
