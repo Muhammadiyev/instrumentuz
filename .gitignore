@@ -1,7 +1,7 @@
-venv/
+/venv/
 .env
 .env.db
 staticfiles/
-media/
+mediafiles/
 .vscode/
 db.sqlite3/
