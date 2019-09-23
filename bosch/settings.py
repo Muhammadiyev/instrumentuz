@@ -1,16 +1,17 @@
 import os
 import django_heroku
 
+ 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 SECRET_KEY = '0^00z5_j-6-r=#*j*or8+$_axqebapi(5&v%7gf*_crvq_xqj3'
 
-DEBUG = True
+DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['myawesomedjangoapp.herokuapp.com']
 
-
+#SECRET_KEY = os.environ.get('SECRET_KEY')
 
 INSTALLED_APPS = [
     'comments.apps.CommentsConfig',
@@ -95,11 +96,14 @@ USE_L10N = True
 USE_TZ = True
 
 
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
 CRISTY_TEMPLATE_PACK = 'bootstrap4'
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+
+django_heroku.settings(locals())
