@@ -1,25 +1,20 @@
 import os
-import django_heroku
 
- 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-SECRET_KEY = '0^00z5_j-6-r=#*j*or8+$_axqebapi(5&v%7gf*_crvq_xqj3'
+DEBUG = int(os.environ.get('DEBUG', default=0))
 
-# DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
-DEBUG = True
-
-ALLOWED_HOSTS = ['myawesomedjangoapp.herokuapp.com']
-
-#SECRET_KEY = os.environ.get('SECRET_KEY')
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']  # myawesomedjangoapp.herokuapp.com
 
 INSTALLED_APPS = [
     'comments.apps.CommentsConfig',
     'dictionary.apps.DictionaryConfig',
     'instruments.apps.InstrumentsConfig',
     'company.apps.CompanyConfig',
-    
+    'upload.apps.UploadConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +40,7 @@ ROOT_URLCONF = 'bosch.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -60,16 +55,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bosch.wsgi.application'
 
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': os.environ.get('SQL_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.environ.get('SQL_DATABASE', os.path.join(BASE_DIR, 'db.sqlite3')),
+        'USER': os.environ.get('SQL_USER', 'user'),
+        'PASSWORD': os.environ.get('SQL_PASSWORD', 'password'),
+        'HOST': os.environ.get('SQL_HOST', 'localhost'),
+        'PORT': os.environ.get('SQL_PORT', '5432'),
     }
 }
-
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -96,15 +91,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 
 CRISTY_TEMPLATE_PACK = 'bootstrap4'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+MEDIA_URL = '/mediafiles/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-
-
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
