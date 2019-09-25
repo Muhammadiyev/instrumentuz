@@ -13,7 +13,6 @@ INSTALLED_APPS = [
     'dictionary.apps.DictionaryConfig',
     'instruments.apps.InstrumentsConfig',
     'company.apps.CompanyConfig',
-    'upload.apps.UploadConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
