@@ -6,7 +6,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = [ '*']  # myawesomedjangoapp.herokuapp.com
+ALLOWED_HOSTS = ['*']  # myawesomedjangoapp.herokuapp.com
 
 INSTALLED_APPS = [
     'comments.apps.CommentsConfig',
