@@ -8,7 +8,7 @@ urlpatterns = [
     path('api/v1/company/', include('company.urls')),
     path('api/v1/', include('instruments.urls')),
     path('api/v1/', include('dictionary.urls')),
-    path('api/v1/news/', include('comments.urls')),
+    path('api/v1/', include('comments.urls')),
 ]
 
 if bool(settings.DEBUG):

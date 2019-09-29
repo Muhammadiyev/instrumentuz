@@ -17,7 +17,7 @@ class InstrumentDiscountViewSet(viewsets.ModelViewSet):
     queryset = Instrument_in_Discount.objects.filter()
     serializer_class = InstrumentDiscountSerializer
     filter_backends = (filters.DjangoFilterBackend, SearchFilter, OrderingFilter)
-    filter_fields = ['instrument__firm','instrument__categories']
+    filter_fields = ['instrument__firm']
 
 
 
@@ -34,7 +34,7 @@ class InstrumentAllView(generics.RetrieveAPIView):
 
 
 
-class InstrumentDiscountViewSet(viewsets.ModelViewSet):
+class InstrumentDescriptionViewSet(viewsets.ModelViewSet):
     queryset = Description.objects.filter()
     serializer_class = InstrumentDescriptionSerializer
     filter_backends = (filters.DjangoFilterBackend, SearchFilter, OrderingFilter)
@@ -48,3 +48,10 @@ class SearchViewSet(generics.ListAPIView):
     filter_backends = (filters.DjangoFilterBackend, SearchFilter, OrderingFilter)
     filter_fields = __basic_fields
     search_fields = __basic_fields
+
+
+class NewInstrumentModelViewSet(viewsets.ModelViewSet):
+    queryset = Instrument.objects.all().order_by("-date")
+    serializer_class = InstrumentAllSerializer
+    filter_backends = (filters.DjangoFilterBackend, SearchFilter, OrderingFilter)
+    filter_fields = ['firm']

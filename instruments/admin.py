@@ -1,9 +1,13 @@
 from django.contrib import admin
-from .models import *
+from .models import Image, Instrument, Instrument_in_Discount, Description
+
+
+
+
 
 class InstrumentAdmin(admin.ModelAdmin):
 	list_display = ['id','firm','name','price','categories','guarantee_period','property']
-
+	readonly_fields = ('date',)
 
 	class Meta:
 		model = Instrument

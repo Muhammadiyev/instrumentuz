@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import *
+from .models import (
+	Property,
+	Category,
+	Guarantee_Period,
+	Property_unit,
+)
 
 class PropertyAdmin(admin.ModelAdmin):
 	list_display = [field.name for field in Property._meta.fields]
@@ -16,4 +21,4 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Guarantee_Period)
-admin.site.register(Period_term)
+admin.site.register(Property_unit)

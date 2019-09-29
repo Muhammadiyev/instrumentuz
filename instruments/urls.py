@@ -5,6 +5,8 @@ from .views import (
     InstrumentViewSet,
     InstrumentAllView,
     InstrumentDiscountViewSet,
+    InstrumentDescriptionViewSet,
+    NewInstrumentModelViewSet,
     SearchViewSet,
 )
 
@@ -12,7 +14,8 @@ router = routers.DefaultRouter()
 
 router.register(r'^instruments',InstrumentViewSet)
 router.register(r'^discount',InstrumentDiscountViewSet)
-router.register(r'^description',InstrumentDiscountViewSet)
+router.register(r'^description',InstrumentDescriptionViewSet)
+router.register(r'^newinstuments',NewInstrumentModelViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),

@@ -1,8 +1,10 @@
 /venv/
-.env
-.env.db
+
 staticfiles/
 mediafiles/
 .vscode/
 db.sqlite3/
 /.idea/
+
+**/__pycache__/
+**.pyc

@@ -1,6 +1,8 @@
 from django.db import models
-from dictionary.models import *
-
+from dictionary.models import (
+    Category, Property,
+    Guarantee_Period, Period_term
+)
 
 class Image(models.Model):
     name = models.CharField(max_length=100)
@@ -25,6 +27,9 @@ class Instrument(models.Model):
     property = models.ForeignKey(Property, blank=True, null=True, related_name='property', on_delete=models.CASCADE)
     firm = models.ForeignKey('company.Firm', blank=True, null=True, related_name='instruments_of_firm',
                              on_delete=models.CASCADE)
+    reate = models.IntegerField(default=0,null=True,blank=True)
+    date = models.DateTimeField(null=True,auto_now_add=True, auto_now=False)
+    
 
     def __str__(self):
         return "%s" % self.name
@@ -42,6 +47,7 @@ class Instrument_in_Discount(models.Model):
     is_active = models.BooleanField(default=False)
     instrument = models.ForeignKey(Instrument, blank=True, null=True, related_name='discount_of_instrument',
                                    on_delete=models.CASCADE)
+                                   
 
     def __str__(self):
         return "%s" % self.name
