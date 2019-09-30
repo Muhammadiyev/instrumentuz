@@ -1,5 +1,15 @@
 from rest_framework import serializers
-from .models import Category, Property, Guarantee_Period, Property_unit
+from .models import (
+    Category, Property,
+    Guarantee_Period,
+    Property_unit,Period_term
+)
+
+class Period_termSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Period_term
+        fields = '__all__'
 
 class CategorySerializer(serializers.ModelSerializer):
 
@@ -16,7 +26,7 @@ class PropertyUnitSerializer(serializers.ModelSerializer):
 
 class PropertySerializer(serializers.ModelSerializer):
 
-    property_unit = PropertyUnitSerializer(many=True,read_only=True)
+    property_unit = PropertyUnitSerializer(read_only=True)
     class Meta:
         model = Property
         fields = '__all__'

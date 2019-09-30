@@ -2,7 +2,8 @@ from rest_framework import serializers
 from .models import Instrument, Image, Instrument_in_Discount,Description
 from dictionary.serializers import (
     Guarantee_PeriodSerializer,
-    PropertySerializer
+    PropertySerializer,
+    Period_termSerializer,
 )
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -33,7 +34,7 @@ class InstrumentAllSerializer(serializers.ModelSerializer):
 
 class InstrumentDiscountSerializer(serializers.ModelSerializer):
     
-    #discount_term = ImageSerializer(many=True,read_only=True)
+    discount_term = Period_termSerializer(read_only=True)
     instrument = InstrumentAllSerializer(read_only=True)
    
     class Meta:

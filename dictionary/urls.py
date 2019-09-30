@@ -10,5 +10,4 @@ router.register(r'^category',CategoryViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    # path('<int:pk>/', CategoryView.as_view()),
 ]
