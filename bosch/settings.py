@@ -2,11 +2,11 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'sdsdsdsdsddssss1121s')
 
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['*']  # myawesomedjangoapp.herokuapp.com
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'comments.apps.CommentsConfig',

@@ -1,12 +1,10 @@
 /venv/
-
 staticfiles/
 mediafiles/
 .vscode/
 db.sqlite3/
 /.idea/
-
-**/__pycache__/
-**.pyc
 .env
 .env.db
+**/__pycache__/
+**.pyc
