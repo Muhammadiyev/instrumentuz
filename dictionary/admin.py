@@ -4,6 +4,7 @@ from .models import (
 	Category,
 	Guarantee_Period,
 	Property_unit,
+	Period_term
 )
 
 class PropertyAdmin(admin.ModelAdmin):
@@ -22,3 +23,4 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Guarantee_Period)
 admin.site.register(Property_unit)
+admin.site.register(Period_term)
