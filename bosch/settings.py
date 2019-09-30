@@ -106,14 +106,13 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = [
-    "http://starinstrument.uz",
-    "http://194.67.78.26"
-]
-CORS_ORIGIN_REGEX_WHITELIST = [
-    "http://starinstrument.uz",
-    "http://194.67.78.26"
-]
+
+# CORS_ORIGIN_WHITELIST = [
+#     "http://starinstrument.uz",
+#     "http://194.67.78.26",
+#     "http://localhost:8080",
+#     "http://127.0.0.1:8000"
+# ]
 CORS_ALLOW_METHODS = [
     'DELETE',
     'GET',
@@ -121,8 +120,4 @@ CORS_ALLOW_METHODS = [
     'PATCH',
     'POST',
     'PUT',
-]
-
-INTERNAL_IPS = [
-    '127.0.0.1'
 ]
