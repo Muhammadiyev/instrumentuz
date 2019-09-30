@@ -11,14 +11,16 @@ from .views import (
 )
 
 router = routers.DefaultRouter()
+routerA = routers.DefaultRouter()
 
 router.register(r'^instruments',InstrumentViewSet)
 router.register(r'^discount',InstrumentDiscountViewSet)
 router.register(r'^description',InstrumentDescriptionViewSet)
-router.register(r'^newinstuments',NewInstrumentModelViewSet)
+routerA.register(r'^instrument',NewInstrumentModelViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
+    url(r'^newinstrument/', include(routerA.urls)),
     path('search/', SearchViewSet.as_view()),
     path('instrument/<int:pk>/', InstrumentAllView.as_view()),
 ]
