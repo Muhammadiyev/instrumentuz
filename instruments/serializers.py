@@ -19,7 +19,7 @@ class InstrumentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Instrument
-        fields = ('id','image','name', 'price')
+        fields = ('id','image','name', 'price','reate','date')
 
 
 class InstrumentAllSerializer(serializers.ModelSerializer):
